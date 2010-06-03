@@ -1,6 +1,35 @@
-= first_github_commit
+= First Github Commit
 
-Description goes here.
+Makes finding the very first commit to a GitHub repo very simple:
+
+  require 'first_github_commit'
+  require 'pp'
+  pp FirstGithubCommit.find('thoughtbot', 'shoulda')
+  =>  {"author"=> { ... }
+       "url"=> "http://github.com/thoughtbot/shoulda/commit/37686ae0dadb3a820db039a9ab3d024983034e7f",
+       "id"=>"37686ae0dadb3a820db039a9ab3d024983034e7f",
+       "committed_date"=>"2007-03-14T11:11:47-07:00",
+       "message"=>"Created trunk and tags (...)",       
+       (...)}
+       
+The data returned is that from the GitHub commit listing API, see http://develop.github.com/p/commits.html
+
+If you also want to know the page number, try this:
+
+  c = FirstGithubCommit.new('thoughtbot', 'shoulda')
+  c.yaml => {"author"=> ... } # Same as above
+  c.page => 14
+  # Get the url for the github commit listing web interface
+  c.github_url => "http://github.com/thoughtbot/shoulda/commits/master?page=14"
+
+The page number is being retrieved by first finding the highest non-available page number.
+Starting from page 100, the limit is being doubled on consecutive requests until the GitHub API
+returns a 404. Then, the chunk is split in half and traversed further until the single page is found.
+
+The web request limit is 30 consecutive requests, after which a FirstGithubCommit::TooManyRequests
+exception will be thrown. 
+
+Set FirstGithubCommit::DEBUG to true to get some debug output about the requests and the traversal.
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +43,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 "Christoph. See LICENSE for details.
+Copyright (c) 2010 Christoph Olszowka. See LICENSE for details.

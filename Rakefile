@@ -5,12 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "first_github_commit"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = ""christoph"
+    gem.summary = %Q{Find the first commit for a given github repository and return the API info for it}
+    gem.description = %Q{Find the first commit for a given github repository and return the API info for it by traversing the }
+    gem.email = "christoph at olszowka dot de"
     gem.homepage = "http://github.com/colszowka/first_github_commit"
-    gem.authors = [""Christoph"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.authors = ["Christoph Olszowka"]
+    gem.add_dependency 'redirect_follower', '>= 0.1.1'
+    gem.add_development_dependency "shoulda", ">= 2.10.2"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
