@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "first_github_commit"
-    gem.summary = %Q{Find the first commit for a given github repository and return the API info for it}
-    gem.description = %Q{Find the first commit for a given github repository and return the API info for it by traversing the }
+    gem.summary = %Q{Find the first commit for a given github repository and return the API info about it}
+    gem.description = %Q{Find the first commit for a given github repository and return the API info about it}
     gem.email = "christoph at olszowka dot de"
     gem.homepage = "http://github.com/colszowka/first_github_commit"
     gem.authors = ["Christoph Olszowka"]

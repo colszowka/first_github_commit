@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "first_github_commit.gemspec",
      "lib/first_github_commit.rb",
      "test/fast_context.rb",
      "test/helper.rb",
