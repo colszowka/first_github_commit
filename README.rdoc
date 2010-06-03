@@ -28,12 +28,19 @@ If you also want to know the page number, try this:
 
 The page number is being retrieved by first finding the highest non-available page number.
 Starting from page 100, the limit is being doubled on consecutive requests until the GitHub API
-returns a 404. Then, the chunk is split in half and traversed further until the single page is found.
+returns a 404. Then, the chunk is split in half and traversed further until the actual last page is found,
+from which the last commit is being retrieved then.
 
 The web request limit is 30 consecutive requests, after which a FirstGithubCommit::TooManyRequests
 exception will be thrown. 
 
 Set FirstGithubCommit::DEBUG to true to get some debug output about the requests and the traversal.
+
+== TODO
+
+* Optimize the page retrieval
+* Better error handling
+* Make sure the repo exists before proceeding
 
 == Note on Patches/Pull Requests
  
