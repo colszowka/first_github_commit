@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{first_github_commit}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Christoph Olszowka"]
   s.date = %q{2010-06-03}
-  s.description = %q{Find the first commit for a given github repository and return the API info for it by traversing the }
+  s.description = %q{Find the first commit for a given github repository and return the API info about it}
   s.email = %q{christoph at olszowka dot de}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Find the first commit for a given github repository and return the API info for it}
+  s.summary = %q{Find the first commit for a given github repository and return the API info about it}
   s.test_files = [
     "test/fast_context.rb",
      "test/helper.rb",

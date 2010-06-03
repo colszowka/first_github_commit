@@ -2,6 +2,10 @@
 
 Makes finding the very first commit to a GitHub repo very simple:
 
+  gem install first_github_commit
+
+Then you can do the following:
+
   require 'first_github_commit'
   require 'pp'
   pp FirstGithubCommit.find('thoughtbot', 'shoulda')
