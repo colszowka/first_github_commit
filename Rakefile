@@ -11,7 +11,7 @@ begin
     gem.homepage = "http://github.com/colszowka/first_github_commit"
     gem.authors = ["Christoph Olszowka"]
     gem.add_dependency 'redirect_follower', '>= 0.1.1'
-    gem.add_development_dependency "shoulda", ">= 2.10.2"
+    gem.add_development_dependency "shoulda", "2.10.3"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

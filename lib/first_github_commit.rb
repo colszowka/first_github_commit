@@ -1,3 +1,6 @@
+require 'bundler'
+Bundler.setup(:default)
+
 require 'redirect_follower'
 require 'yaml'
 
@@ -12,7 +15,7 @@ class FirstGithubCommit
   def initialize(user, repo)
     @user, @repo = user, repo
     @requests_made = 0
-    @range = (1..100)
+    @range = (1..130)
     find_upper_limit
     find_page_number
   end

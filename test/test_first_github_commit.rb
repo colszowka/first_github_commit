@@ -1,6 +1,7 @@
 require 'helper'
-require 'pp'
+
 class TestFirstGithubCommit < Test::Unit::TestCase
+
   after_finding 'thoughtbot', 'shoulda' do
     should_return_a_hash
     should_have_value 'tsaleh', :at => 'author.name'
@@ -12,7 +13,7 @@ class TestFirstGithubCommit < Test::Unit::TestCase
     should_return_a_hash
     should_have_value 'David Heinemeier Hansson', :at => 'author.name'
     should_have_value 'dhh', :at => "author.login"
-    should_have_value "2004-11-25T14:07:29-08:00", :at => "committed_date"
+    should_have_value "2004-11-23T17:04:44-08:00", :at => "committed_date"
   end
   
   after_finding 'lifo', 'fast_context' do
@@ -29,4 +30,5 @@ class TestFirstGithubCommit < Test::Unit::TestCase
       assert_equal 'http://github.com/lifo/fast_context/commits/master?page=1', subject.github_url
     end
   end
+  
 end

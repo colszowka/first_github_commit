@@ -1,17 +1,19 @@
 require 'rubygems'
+require 'bundler'
+Bundler.setup(:default, :development)
 require 'test/unit'
 require 'shoulda'
+require 'pp'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'first_github_commit'
-require 'test/fast_context'
-require 'test/ruby_ext'
+require 'ruby_ext'
 
 class Test::Unit::TestCase
 
   def self.after_finding(user, repo)
-    fast_context "After finding #{user}/#{repo}" do
+    context "After finding #{user}/#{repo}" do
       setup { @yaml = FirstGithubCommit.find(user, repo) }
       subject { @yaml }
       
@@ -20,7 +22,7 @@ class Test::Unit::TestCase
   end
   
   def self.after_initializing_for(user, repo)
-    fast_context "After initializing for #{user}/#{repo}" do
+    context "After initializing for #{user}/#{repo}" do
       setup { @commit = FirstGithubCommit.new(user, repo) }
       subject { @commit }
       
