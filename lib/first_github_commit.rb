@@ -6,6 +6,7 @@ require 'yaml'
 
 class FirstGithubCommit
   class TooManyRequests < StandardError; end;
+  class RepoNotFound < StandardError; end;
 
   attr_reader :user, :repo, :requests_made, :page
   
@@ -16,6 +17,10 @@ class FirstGithubCommit
     @user, @repo = user, repo
     @requests_made = 0
     @range = (1..130)
+    
+    # Make sure the repo even exists!
+    raise RepoNotFound if RedirectFollower.new(url_for_page(1)).response.kind_of?(Net::HTTPNotFound)
+    
     find_upper_limit
     find_page_number
   end

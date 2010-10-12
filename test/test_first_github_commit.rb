@@ -31,4 +31,11 @@ class TestFirstGithubCommit < Test::Unit::TestCase
     end
   end
   
+  context "finding a non-existing repo" do
+    should "raise FirstGithubCommit::RepoNotFound" do
+      assert_raise FirstGithubCommit::RepoNotFound do 
+        FirstGithubCommit.find('colszowka', 'missing')
+      end
+    end
+  end
 end
