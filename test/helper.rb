@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler'
 Bundler.setup(:default, :development)
+require 'simplecov'
+SimpleCov.start
 require 'test/unit'
 require 'shoulda'
 require 'pp'

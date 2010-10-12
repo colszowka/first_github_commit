@@ -12,6 +12,9 @@ GEM
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     shoulda (2.10.3)
+    simplecov (0.3.3)
+      simplecov-html (>= 0.3.7)
+    simplecov-html (0.3.8)
 
 PLATFORMS
   ruby
@@ -20,3 +23,4 @@ DEPENDENCIES
   jeweler
   redirect_follower
   shoulda (= 2.10.3)
+  simplecov
