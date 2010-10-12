@@ -12,11 +12,18 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'first_github_commit'
 require 'ruby_ext'
 
+ResultsCache = {:find => {}, :new => {}}
+
 class Test::Unit::TestCase
 
   def self.after_finding(user, repo)
     context "After finding #{user}/#{repo}" do
-      setup { @yaml = FirstGithubCommit.find(user, repo) }
+      setup do 
+        # Be nice, don't fetch results from scratch for every single should...
+        unless @yaml = ResultsCache[:find]["#{user}/#{repo}"]
+          @yaml = ResultsCache[:find]["#{user}/#{repo}"] = FirstGithubCommit.find(user, repo)
+        end
+      end
       subject { @yaml }
       
       yield
@@ -25,7 +32,12 @@ class Test::Unit::TestCase
   
   def self.after_initializing_for(user, repo)
     context "After initializing for #{user}/#{repo}" do
-      setup { @commit = FirstGithubCommit.new(user, repo) }
+      setup do 
+        # Be nice, don't fetch results from scratch for every single should...
+        unless @commit = ResultsCache[:new]["#{user}/#{repo}"]    
+          @commit = ResultsCache[:new]["#{user}/#{repo}"] = FirstGithubCommit.new(user, repo)
+        end
+      end
       subject { @commit }
       
       yield
